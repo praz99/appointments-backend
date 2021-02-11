@@ -2,7 +2,7 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   class AuthenticationError < StandardError; end
-  class MissingError < StandardError; end
+  class MissingToken < StandardError; end
   class InvalidToken < StandardError; end
 
   included do
