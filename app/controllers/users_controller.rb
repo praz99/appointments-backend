@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     json_response(response, :created)
   end
 
+  def show
+    user = User.find(params[:id])
+    json_response(user: user)
+  end
+
   private
 
   def user_params
