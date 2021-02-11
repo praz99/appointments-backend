@@ -1,4 +1,4 @@
-def AuthenticateUser
+class AuthenticateUser
   def initialize(username, password)
     @username = username
     @password = password
