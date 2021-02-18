@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :houses do
     resources :appointments, only: [:create, :destroy]
   end
+  get 'current_user', to: 'users#current_user'
 end
