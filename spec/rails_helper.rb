@@ -7,6 +7,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'database_cleaner'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
 # configure shoulda mathcers to use rspec as the test framework and full matcher libraries for rails
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -86,4 +88,6 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include RequestSpecHelper
 end
