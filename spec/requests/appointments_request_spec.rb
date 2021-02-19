@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Appointments API', type: :request do
   let(:user) { create(:user) }
   let(:house) { create(:house) }
-  let(:user_id) { user.id }
   let(:house_id) { house.id }
   let(:headers) { valid_headers }
   let(:date) { Faker::Date.forward(days: 10) }

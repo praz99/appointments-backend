@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Houses API', type: :request do
   # initialize test data
+  let(:user) { create(:user) }
   let!(:houses) { create_list(:house, 10) }
   let(:house_id) { houses.first.id }
+  let(:headers) { valid_headers }
 
   describe 'GET /houses' do
-    before { get '/houses' }
+    before { get '/houses', params: {}, headers: headers }
 
     it 'returns houses' do
       expect(json).not_to be_empty
@@ -19,7 +21,7 @@ RSpec.describe 'Houses API', type: :request do
   end
 
   describe 'GET /houses/:house_id' do
-    before { get "/houses/#{house_id}" }
+    before { get "/houses/#{house_id}", params: {}, headers: headers }
 
     context 'when the record exists' do
       it 'returns the house' do
