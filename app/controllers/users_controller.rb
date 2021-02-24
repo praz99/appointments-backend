@@ -13,12 +13,12 @@ class UsersController < ApplicationController
     json_response(user: user)
   end
 
-  def current_user
-    user = @current_user
-    appointments = @current_user.appointments
-    response = { user: user, appointments: appointments }
-    json_response(response)
-  end
+  # def current_user
+  #   user = @current_user
+  #   appointments = @current_user.appointments
+  #   response = { user: user, appointments: appointments }
+  #   json_response(response)
+  # end
 
   private
 
