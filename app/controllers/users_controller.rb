@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
-  # POST /signup
   def create
     user = User.create!(user_params)
     auth_token = AuthenticateUser.new(user.username, user.password).call
@@ -10,15 +9,10 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    json_response(user: user)
+    appointments = user.appointments
+    response = { user: user, appointments: appointments }
+    json_response(response)
   end
-
-  # def current_user
-  #   user = @current_user
-  #   appointments = @current_user.appointments
-  #   response = { user: user, appointments: appointments }
-  #   json_response(response)
-  # end
 
   private
 
