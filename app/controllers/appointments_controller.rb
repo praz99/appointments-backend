@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def create
-    @appointment = @current_user.appointments.create!(appointment_params)
-    json_response(@appointment, :created)
+    new_appointment = Appointment.user_new_appointment(@current_user, params[:house_id], params[:date])
+    json_response(new_appointment, :created)
   end
 
   def destroy
