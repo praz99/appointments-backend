@@ -1,7 +1,12 @@
 class AppointmentsController < ApplicationController
   def create
     new_appointment = Appointment.user_new_appointment(@current_user, params[:house_id], params[:date])
-    json_response(new_appointment, :created)
+
+    if new_appointment.save
+      json_response(new_appointment, :created)
+   else
+      json_response(new_appointment.errors, :unprocessable_entity)
+   end
   end
 
   def destroy
