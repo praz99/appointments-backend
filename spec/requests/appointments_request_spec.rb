@@ -33,7 +33,7 @@ RSpec.describe 'Appointments API', type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body).to match("message\":\"Validation failed: Date can't be blank\"")
+        expect(response.body).to match("{\"date\":[\"can't be blank\"]}")
       end
     end
   end
