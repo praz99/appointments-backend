@@ -4,9 +4,9 @@ class AppointmentsController < ApplicationController
 
     if new_appointment.save
       json_response(new_appointment, :created)
-   else
+    else
       json_response(new_appointment.errors, :unprocessable_entity)
-   end
+    end
   end
 
   def destroy
