@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post 'auth/login', to: 'authentication#create'
+  resources :users, only: [:create, :show]
+  resources :houses do
+    resources :appointments, only: [:create, :destroy]
+  end
 end
