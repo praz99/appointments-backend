@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: makeAppointment_development
+  database: make-appointment_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: makeAppointment
+  #username: make-appointment
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: makeAppointment_test
+  database: make-appointment_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: makeAppointment_production
-  username: makeAppointment
-  password: <%= ENV['MAKEAPPOINTMENT_DATABASE_PASSWORD'] %>
+  database: make-appointment_production
+  username: make-appointment
+  password: <%= ENV['make-appointment_DATABASE_PASSWORD'] %>
